@@ -681,7 +681,62 @@
             box-shadow: 0 8px 25px rgba(49, 130, 206, 0.4);
         }
 
-        /* Mobile Responsiveness */
+        /* Tech Icons */
+        .tech-icons {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: tech-float 4s ease-in-out infinite;
+        }
+
+        .tech-icon:nth-child(1) { animation-delay: 0s; }
+        .tech-icon:nth-child(2) { animation-delay: 0.5s; }
+        .tech-icon:nth-child(3) { animation-delay: 1s; }
+        .tech-icon:nth-child(4) { animation-delay: 1.5s; }
+
+        @keyframes tech-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .tech-icon:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(43, 108, 176, 0.3);
+            border-color: #2b6cb0;
+        }
+
+        .tech-icon.aws {
+            color: #ff9900;
+        }
+
+        .tech-icon.python {
+            color: #3776ab;
+        }
+
+        .tech-icon.gitlab {
+            color: #fc6d26;
+        }
+
+        .tech-icon.ai {
+            color: #2b6cb0;
+        }
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -716,8 +771,10 @@
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .tech-icons {
+                margin-top: 1rem;
+                grid-column: 1 / -1;
+                justify-self: center;
             }
         }
 
