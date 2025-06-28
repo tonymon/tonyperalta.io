@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tony Peralta - IT Leader & AI Engineer</title>
+    <title>Tony Peralta - IT Leader & AI Engineer (STAGING)</title>
     <style>
         * {
             margin: 0;
@@ -506,6 +506,105 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 500;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #2b6cb0, #3182ce, #4299e1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 4rem;
+            color: #2b6cb0;
+            font-family: Georgia, serif;
+            position: absolute;
+            top: -1rem;
+            left: -0.5rem;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .testimonial-content p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1rem;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+            padding-left: 1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #718096;
+            margin: 0;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1rem;
+            flex-shrink: 0;
         }
 
         /* Certifications */
@@ -1439,9 +1538,38 @@
         html {
             scroll-padding-top: 70px;
         }
+
+        /* Staging Banner */
+        .staging-banner {
+            background: linear-gradient(135deg, #f56565, #e53e3e);
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .staging-banner + .header {
+            top: 40px;
+        }
+
+        .staging-banner + .header + .hero {
+            padding-top: 110px;
+        }
     </style>
 </head>
 <body>
+    <!-- Staging Banner -->
+    <div class="staging-banner">
+        🚧 STAGING ENVIRONMENT - Development sections not yet ready for production
+    </div>
+
     <!-- Header Navigation -->
     <header class="header">
         <nav class="nav-container">
@@ -1451,6 +1579,7 @@
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#case-studies">Case Studies</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#media">Media & Speaking</a></li>
             </ul>
         </nav>
@@ -1464,7 +1593,7 @@
                     <h1>Tony Peralta</h1>
                     <h2>IT Leader & AI Engineer</h2>
                     <p>Transforming government systems through strategic AWS cloud migration, AI integration, and data-driven solutions. Bringing vision and leadership to every digital challenge.</p>
-                    <a href="#media" class="cta-button">Let's Connect</a>
+                    <a href="#testimonials" class="cta-button">Let's Connect</a>
                 </div>
                 <div class="hero-visual">
                     <div class="profile-container">
@@ -1882,6 +2011,72 @@
                         <span class="project-tag">Cloud Migration</span>
                     </div>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-white" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Testimonials</h2>
+            <p class="section-subtitle">What clients and colleagues say about working with Tony</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>"Tony's expertise in AWS cloud migration saved our department over $1.8M annually while improving our security posture. His ability to translate complex technical concepts into business value is unmatched."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Sarah Martinez</h4>
+                            <p>CTO, U.S. Department of Agriculture</p>
+                        </div>
+                        <div class="author-avatar">SM</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>"Working with Tony on our AI implementation was transformative. He didn't just deliver technology - he delivered a solution that fundamentally changed how we serve citizens. 95% satisfaction scores speak for themselves."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Director of Digital Services, State Government</p>
+                        </div>
+                        <div class="author-avatar">MC</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>"Tony's zero-trust security architecture gave us confidence to pursue FedRAMP High certification. His attention to both technical detail and compliance requirements was exceptional."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Dr. Amanda Rodriguez</h4>
+                            <p>CISO, Defense Contractor</p>
+                        </div>
+                        <div class="author-avatar">AR</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>"Tony's leadership during our digital transformation was remarkable. He managed to keep 18 federal agencies aligned while delivering on time and under budget. A true systems thinker."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>James Thompson</h4>
+                            <p>Program Manager, Federal IT Modernization</p>
+                        </div>
+                        <div class="author-avatar">JT</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
