@@ -83,24 +83,16 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 50%, #e2e8f0 100%);
-            min-height: 100vh;
+            background-image: url('OpenPagePicture.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             position: relative;
             padding-top: 70px;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="100" fill="rgba(43,108,176,0.03)"/><circle cx="800" cy="300" r="150" fill="rgba(49,130,206,0.02)"/><circle cx="500" cy="800" r="120" fill="rgba(43,108,176,0.04)"/></svg>');
-            animation: float 30s ease-in-out infinite;
         }
 
         @keyframes float {
@@ -117,35 +109,46 @@
         }
 
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            display: flex;
+            justify-content: flex-end;
             align-items: center;
+            height: 100%;
+            padding-right: 2rem;
         }
 
-        .hero-text h1 {
-            font-size: 4rem;
+        .hero-text-overlay {
+            background: transparent;
+            padding: 2.5rem;
+            max-width: 500px;
+            margin-right: 2rem;
+        }
+
+        .hero-text-overlay h1 {
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #2d3748, #4a5568, #2b6cb0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 0.5rem;
+            color: #faf7f2;
             line-height: 1.1;
+            text-shadow: 0 0 2px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.7);
+            -webkit-text-stroke: 0.5px rgba(0,0,0,0.3);
         }
 
-        .hero-text h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            color: #4a5568;
+        .hero-text-overlay h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #f5f1ea;
+            text-shadow: 0 0 2px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.7);
+            -webkit-text-stroke: 0.3px rgba(0,0,0,0.2);
         }
 
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #718096;
-            line-height: 1.7;
+        .hero-text-overlay p {
+            font-size: 1rem;
+            margin-bottom: 0;
+            color: #f8f8f8;
+            line-height: 1.6;
+            text-shadow: 0 0 2px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.7);
+            -webkit-text-stroke: 0.3px rgba(0,0,0,0.2);
         }
 
         .cta-button {
@@ -168,62 +171,47 @@
             background: linear-gradient(135deg, #2c5282, #2b6cb0);
         }
 
-        .hero-visual {
+        /* Metrics Section */
+        .metrics-section {
+            background: #f7fafc;
+            padding: 4rem 0;
+        }
+
+        .metrics-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            position: relative;
+            gap: 3rem;
         }
 
-        .profile-container {
-            position: relative;
-            width: 500px;
-            height: 400px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            border: 1px solid #e2e8f0;
-            background: white;
+        .cta-button-standalone {
+            display: inline-block;
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.3);
+            font-size: 1rem;
         }
 
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-            border-radius: 16px;
-            display: block;
-            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
-        }
-
-        .image-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #718096;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .placeholder-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
+        .cta-button-standalone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(43, 108, 176, 0.4);
+            background: linear-gradient(135deg, #2c5282, #2b6cb0);
         }
 
         .floating-metrics {
-            position: relative;
-            margin-top: 2rem;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            max-width: 500px;
-            z-index: 3;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            flex: 1;
         }
 
         .metric-bubble {
@@ -1434,27 +1422,29 @@
             }
 
             .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+                justify-content: center;
+                padding-right: 2rem;
+                padding-left: 2rem;
             }
 
-            .hero-text h1 {
+            .hero-text-overlay {
+                max-width: 100%;
+                padding: 2rem;
+            }
+
+            .hero-text-overlay h1 {
                 font-size: 2.5rem;
             }
 
-            .profile-container {
-                width: 100%;
-                max-width: 400px;
-                height: 300px;
+            .metrics-container {
+                flex-direction: column;
+                gap: 2rem;
             }
 
             .floating-metrics {
-                position: static;
-                margin-top: 2rem;
-                justify-self: center;
                 grid-template-columns: 1fr 1fr;
                 gap: 1rem;
-                max-width: 400px;
+                width: 100%;
             }
 
             .metric-bubble {
@@ -1546,42 +1536,43 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
+                <div class="hero-text-overlay">
                     <h1>Tony Peralta</h1>
                     <h2>IT Leader & AI Engineer</h2>
                     <p>Transforming government systems through strategic AWS cloud migration, AI integration, and data-driven solutions. Bringing vision and leadership to every digital challenge.</p>
-                    <a href="#media" class="cta-button">Let's Connect</a>
                 </div>
-                <div class="hero-visual">
-                    <div class="profile-container">
-                        <img src="OpenPagePicture.png" alt="Tony Peralta in the desert dunes" class="profile-image" />
-                    </div>
-                    <div class="floating-metrics">
-                        <div class="metric-bubble" data-tooltip="$12 million in infrastructure cost savings achieved through strategic AWS cloud migrations, modernizing legacy systems while improving performance and security">
-                            <div class="metric-icon">💰</div>
-                            <div class="metric-number">$12M</div>
-                            <div class="metric-label">Cost Savings</div>
-                            <div class="metric-subtitle">AWS Cloud Migrations</div>
-                        </div>
-                        <div class="metric-bubble" data-tooltip="Over 20 years of IT architecture and leadership experience across government and enterprise environments, specializing in digital transformation">
-                            <div class="metric-icon">🕐</div>
-                            <div class="metric-number">20+</div>
-                            <div class="metric-label">Years Experience</div>
-                            <div class="metric-subtitle">IT Architecture Leadership</div>
-                        </div>
-                        <div class="metric-bubble" data-tooltip="Seven major legacy systems successfully modernized and migrated to AWS cloud infrastructure, achieving 99.9% uptime SLA and enhanced security compliance">
-                            <div class="metric-icon">☁️</div>
-                            <div class="metric-number">7</div>
-                            <div class="metric-label">Systems Modernized</div>
-                            <div class="metric-subtitle">Legacy to AWS Cloud</div>
-                        </div>
-                        <div class="metric-bubble" data-tooltip="18 years of distinguished federal government service as an IT leader at Treasury Department, driving digital transformation initiatives">
-                            <div class="metric-icon">🏛️</div>
-                            <div class="metric-number">18</div>
-                            <div class="metric-label">Years Federal</div>
-                            <div class="metric-subtitle">Treasury Department</div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics-section">
+        <div class="metrics-container">
+            <a href="#media" class="cta-button-standalone">Let's Connect</a>
+            <div class="floating-metrics">
+                <div class="metric-bubble" data-tooltip="Over 20 years of IT architecture and leadership experience across government and enterprise environments, specializing in digital transformation">
+                    <div class="metric-icon">🕐</div>
+                    <div class="metric-number">20+</div>
+                    <div class="metric-label">Years Experience</div>
+                    <div class="metric-subtitle">IT Architecture Leadership</div>
+                </div>
+                <div class="metric-bubble" data-tooltip="$12 million in infrastructure cost savings achieved through strategic AWS cloud migrations, modernizing legacy systems while improving performance and security">
+                    <div class="metric-icon">💰</div>
+                    <div class="metric-number">$12M</div>
+                    <div class="metric-label">Cost Savings</div>
+                    <div class="metric-subtitle">AWS Cloud Migrations</div>
+                </div>
+                <div class="metric-bubble" data-tooltip="18 years of distinguished federal government service as an IT leader at Treasury Department, driving digital transformation initiatives">
+                    <div class="metric-icon">🏛️</div>
+                    <div class="metric-number">18</div>
+                    <div class="metric-label">Years Federal</div>
+                    <div class="metric-subtitle">Treasury Department</div>
+                </div>
+                <div class="metric-bubble" data-tooltip="Seven major legacy systems successfully modernized and migrated to AWS cloud infrastructure, achieving 99.9% uptime SLA and enhanced security compliance">
+                    <div class="metric-icon">☁️</div>
+                    <div class="metric-number">7</div>
+                    <div class="metric-label">Systems Modernized</div>
+                    <div class="metric-subtitle">Legacy to AWS Cloud</div>
                 </div>
             </div>
         </div>
