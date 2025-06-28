@@ -217,12 +217,12 @@
         }
 
         .floating-metrics {
-            position: absolute;
-            top: -30px;
-            right: -30px;
+            position: relative;
+            margin-top: 2rem;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 500px;
             z-index: 3;
         }
 
