@@ -230,13 +230,28 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 1rem;
+            border-radius: 16px;
+            padding: 1.25rem 1rem;
             text-align: center;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             animation: float-bubble 6s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
+        .metric-bubble:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(43, 108, 176, 0.2);
+            border-color: #2b6cb0;
+        }
+
+        .metric-bubble:nth-child(1) { animation-delay: 0s; }
         .metric-bubble:nth-child(2) { animation-delay: 1.5s; }
         .metric-bubble:nth-child(3) { animation-delay: 3s; }
         .metric-bubble:nth-child(4) { animation-delay: 4.5s; }
@@ -246,17 +261,75 @@
             50% { transform: translateY(-8px); }
         }
 
+        .metric-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
         .metric-number {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: #2b6cb0;
             margin-bottom: 0.25rem;
+            line-height: 1;
         }
 
         .metric-label {
-            color: #4a5568;
-            font-size: 0.8rem;
+            color: #2d3748;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-subtitle {
+            color: #718096;
+            font-size: 0.65rem;
             font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Tooltip Styles */
+        .metric-bubble::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(45, 55, 72, 0.95);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            width: 250px;
+            text-align: left;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .metric-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: 115%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(45, 55, 72, 0.95);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .metric-bubble:hover::before,
+        .metric-bubble:hover::after {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Section Styles */
@@ -1379,6 +1452,19 @@
                 position: static;
                 margin-top: 2rem;
                 justify-self: center;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                max-width: 400px;
+            }
+
+            .metric-bubble {
+                min-height: 100px;
+                padding: 1rem 0.75rem;
+            }
+
+            .metric-bubble::before {
+                width: 200px;
+                font-size: 0.75rem;
             }
 
             .expertise-grid {
@@ -1471,21 +1557,29 @@
                         <img src="OpenPagePicture.png" alt="Tony Peralta in the desert dunes" class="profile-image" />
                     </div>
                     <div class="floating-metrics">
-                        <div class="metric-bubble">
+                        <div class="metric-bubble" data-tooltip="$12 million in infrastructure cost savings achieved through strategic AWS cloud migrations, modernizing legacy systems while improving performance and security">
+                            <div class="metric-icon">💰</div>
                             <div class="metric-number">$12M</div>
-                            <div class="metric-label">Saved</div>
+                            <div class="metric-label">Cost Savings</div>
+                            <div class="metric-subtitle">AWS Cloud Migrations</div>
                         </div>
-                        <div class="metric-bubble">
+                        <div class="metric-bubble" data-tooltip="Over 20 years of IT architecture and leadership experience across government and enterprise environments, specializing in digital transformation">
+                            <div class="metric-icon">🕐</div>
                             <div class="metric-number">20+</div>
-                            <div class="metric-label">Years</div>
+                            <div class="metric-label">Years Experience</div>
+                            <div class="metric-subtitle">IT Architecture Leadership</div>
                         </div>
-                        <div class="metric-bubble">
+                        <div class="metric-bubble" data-tooltip="Seven major legacy systems successfully modernized and migrated to AWS cloud infrastructure, achieving 99.9% uptime SLA and enhanced security compliance">
+                            <div class="metric-icon">☁️</div>
                             <div class="metric-number">7</div>
-                            <div class="metric-label">Systems</div>
+                            <div class="metric-label">Systems Modernized</div>
+                            <div class="metric-subtitle">Legacy to AWS Cloud</div>
                         </div>
-                        <div class="metric-bubble">
+                        <div class="metric-bubble" data-tooltip="18 years of distinguished federal government service as an IT leader at Treasury Department, driving digital transformation initiatives">
+                            <div class="metric-icon">🏛️</div>
                             <div class="metric-number">18</div>
-                            <div class="metric-label">Federal</div>
+                            <div class="metric-label">Years Federal</div>
+                            <div class="metric-subtitle">Treasury Department</div>
                         </div>
                     </div>
                 </div>
