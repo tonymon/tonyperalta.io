@@ -342,6 +342,412 @@
             transform: translateY(-2px);
         }
 
+        /* Case Studies */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .case-study-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2b6cb0, #3182ce, #4299e1);
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .case-study-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .case-study-meta {
+            flex: 1;
+        }
+
+        .case-study-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-client {
+            color: #2b6cb0;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .case-study-timeframe {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .case-study-content {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .challenge-section h4,
+        .solution-section h4,
+        .results-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2b6cb0;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .challenge-section h4::before {
+            content: '🎯';
+            font-size: 1rem;
+        }
+
+        .solution-section h4::before {
+            content: '🚀';
+            font-size: 1rem;
+        }
+
+        .results-section h4::before {
+            content: '📈';
+            font-size: 1rem;
+        }
+
+        .challenge-section p,
+        .solution-section p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .results-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metric {
+            text-align: center;
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .metric:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.1);
+        }
+
+        .metric-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2b6cb0;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #2b6cb0, #3182ce, #4299e1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 4rem;
+            color: #2b6cb0;
+            font-family: Georgia, serif;
+            position: absolute;
+            top: -1rem;
+            left: -0.5rem;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .testimonial-content p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1rem;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+            padding-left: 1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #718096;
+            margin: 0;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .certification-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .cert-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cert-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .cert-level {
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cert-content {
+            flex: 1;
+        }
+
+        .cert-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .cert-description {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .cert-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cert-id {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #718096;
+            background: #f7fafc;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            align-self: flex-start;
+        }
+
+        .cert-date {
+            font-size: 0.85rem;
+            color: #2b6cb0;
+            font-weight: 500;
+        }
+
+        /* Project Filters */
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid #e2e8f0;
+            color: #4a5568;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            border-color: #2b6cb0;
+            color: #2b6cb0;
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            border-color: #2b6cb0;
+            color: white;
+            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.3);
+        }
+
+        .project-tile {
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        .project-tile.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
         /* Project Tiles */
         .project-tiles {
             display: grid;
@@ -768,6 +1174,19 @@
                 grid-template-columns: 1fr;
             }
 
+            .case-study-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .case-study-icon {
+                align-self: center;
+            }
+
+            .results-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .form-row {
                 grid-template-columns: 1fr;
             }
@@ -792,10 +1211,10 @@
             <a href="#" class="logo">Tony Peralta</a>
             <ul class="nav-links">
                 <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#travels">Travels</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
             </ul>
         </nav>
     </header>
@@ -808,7 +1227,7 @@
                     <h1>Tony Peralta</h1>
                     <h2>IT Leader & AI Engineer</h2>
                     <p>Transforming government systems through strategic AWS cloud migration, AI integration, and data-driven solutions. Bringing vision and leadership to every digital challenge.</p>
-                    <a href="#contact" class="cta-button">Let's Connect</a>
+                    <a href="#testimonials" class="cta-button">Let's Connect</a>
                 </div>
                 <div class="hero-visual">
                     <div class="profile-container">
@@ -901,14 +1320,279 @@
         </div>
     </section>
 
+    <!-- AWS Certifications Section -->
+    <section class="section section-gray" id="certifications">
+        <div class="container">
+            <h2 class="section-title">AWS Certifications & Credentials</h2>
+            <p class="section-subtitle">Validated expertise in cloud architecture, security, and AI/ML implementations</p>
+            
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="cert-badge">
+                        <div class="cert-icon">☁️</div>
+                        <div class="cert-level">Professional</div>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">AWS Solutions Architect Professional</h3>
+                        <p class="cert-description">Advanced skills in designing distributed systems on AWS with complex requirements</p>
+                        <div class="cert-details">
+                            <span class="cert-id">AWS-ASA-PRO-2023</span>
+                            <span class="cert-date">Valid: 2021-2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="cert-badge">
+                        <div class="cert-icon">🛡️</div>
+                        <div class="cert-level">Specialty</div>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">AWS Security Specialty</h3>
+                        <p class="cert-description">Expertise in securing AWS workloads and implementing compliance frameworks</p>
+                        <div class="cert-details">
+                            <span class="cert-id">AWS-SEC-SPEC-2023</span>
+                            <span class="cert-date">Valid: 2022-2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="cert-badge">
+                        <div class="cert-icon">🤖</div>
+                        <div class="cert-level">Specialty</div>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">AWS Machine Learning Specialty</h3>
+                        <p class="cert-description">Advanced knowledge in designing and implementing ML solutions on AWS</p>
+                        <div class="cert-details">
+                            <span class="cert-id">AWS-MLS-SPEC-2024</span>
+                            <span class="cert-date">Valid: 2023-2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="cert-badge">
+                        <div class="cert-icon">🏛️</div>
+                        <div class="cert-level">Federal</div>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">FedRAMP Security Assessment</h3>
+                        <p class="cert-description">Certified to conduct security assessments for federal cloud deployments</p>
+                        <div class="cert-details">
+                            <span class="cert-id">FEDRAMP-SA-2023</span>
+                            <span class="cert-date">Valid: 2023-2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="cert-badge">
+                        <div class="cert-icon">🔐</div>
+                        <div class="cert-level">Security</div>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">CISSP - Information Systems Security</h3>
+                        <p class="cert-description">Comprehensive knowledge in cybersecurity principles and practices</p>
+                        <div class="cert-details">
+                            <span class="cert-id">ISC2-CISSP-2022</span>
+                            <span class="cert-date">Valid: 2020-2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="cert-badge">
+                        <div class="cert-icon">🎯</div>
+                        <div class="cert-level">Management</div>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">PMP - Project Management Professional</h3>
+                        <p class="cert-description">Leadership and management of complex IT transformation projects</p>
+                        <div class="cert-details">
+                            <span class="cert-id">PMI-PMP-2021</span>
+                            <span class="cert-date">Valid: 2019-2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section section-blue" id="case-studies">
+        <div class="container">
+            <h2 class="section-title">Case Studies</h2>
+            <p class="section-subtitle">Real-world results from complex government and enterprise transformations</p>
+            
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="case-study-icon">🏛️</div>
+                        <div class="case-study-meta">
+                            <h3 class="case-study-title">Federal Agency Cloud Migration</h3>
+                            <div class="case-study-client">U.S. Department of Agriculture</div>
+                            <div class="case-study-timeframe">2022-2023 • 18 months</div>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <div class="challenge-section">
+                            <h4>Challenge</h4>
+                            <p>Legacy mainframe systems serving 100,000+ users with $2M annual maintenance costs, security vulnerabilities, and zero disaster recovery capabilities.</p>
+                        </div>
+                        <div class="solution-section">
+                            <h4>Solution</h4>
+                            <p>Led complete AWS cloud migration with microservices architecture, implementing EC2 auto-scaling, RDS Multi-AZ, and S3 data lakes. Deployed AWS Connect for citizen services.</p>
+                        </div>
+                        <div class="results-section">
+                            <h4>Results</h4>
+                            <div class="results-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">$1.8M</span>
+                                    <span class="metric-label">Annual Savings</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">99.9%</span>
+                                    <span class="metric-label">Uptime SLA</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">70%</span>
+                                    <span class="metric-label">Faster Processing</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">Zero</span>
+                                    <span class="metric-label">Security Incidents</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">AWS EC2</span>
+                            <span class="tech-tag">RDS PostgreSQL</span>
+                            <span class="tech-tag">S3 Data Lakes</span>
+                            <span class="tech-tag">AWS Connect</span>
+                            <span class="tech-tag">CloudFormation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="case-study-icon">🤖</div>
+                        <div class="case-study-meta">
+                            <h3 class="case-study-title">AI-Powered Citizen Services</h3>
+                            <div class="case-study-client">State Government Agency</div>
+                            <div class="case-study-timeframe">2023-2024 • 12 months</div>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <div class="challenge-section">
+                            <h4>Challenge</h4>
+                            <p>Call center overwhelmed with 50,000+ monthly inquiries, 45-minute average wait times, and 30% of calls requiring escalation to specialists.</p>
+                        </div>
+                        <div class="solution-section">
+                            <h4>Solution</h4>
+                            <p>Implemented AWS Bedrock-powered chatbot with Amazon Lex integration, Claude AI for complex queries, and intelligent routing to human agents when needed.</p>
+                        </div>
+                        <div class="results-section">
+                            <h4>Results</h4>
+                            <div class="results-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">80%</span>
+                                    <span class="metric-label">Automation Rate</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">3 min</span>
+                                    <span class="metric-label">Avg Response Time</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">95%</span>
+                                    <span class="metric-label">Satisfaction Score</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">$800K</span>
+                                    <span class="metric-label">Annual Savings</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">AWS Bedrock</span>
+                            <span class="tech-tag">Amazon Lex</span>
+                            <span class="tech-tag">Claude AI</span>
+                            <span class="tech-tag">Lambda Functions</span>
+                            <span class="tech-tag">API Gateway</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-study-header">
+                        <div class="case-study-icon">🔒</div>
+                        <div class="case-study-meta">
+                            <h3 class="case-study-title">Zero-Trust Security Implementation</h3>
+                            <div class="case-study-client">Defense Contractor</div>
+                            <div class="case-study-timeframe">2023 • 8 months</div>
+                        </div>
+                    </div>
+                    <div class="case-study-content">
+                        <div class="challenge-section">
+                            <h4>Challenge</h4>
+                            <p>Required FedRAMP High authorization for classified data processing while maintaining performance for 500+ concurrent users across multiple facilities.</p>
+                        </div>
+                        <div class="solution-section">
+                            <h4>Solution</h4>
+                            <p>Architected zero-trust network with AWS IAM Identity Center, VPC isolation, and multi-factor authentication. Implemented continuous monitoring and automated threat response.</p>
+                        </div>
+                        <div class="results-section">
+                            <h4>Results</h4>
+                            <div class="results-metrics">
+                                <div class="metric">
+                                    <span class="metric-value">FedRAMP</span>
+                                    <span class="metric-label">High Certified</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">100%</span>
+                                    <span class="metric-label">Compliance Score</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">0ms</span>
+                                    <span class="metric-label">Performance Impact</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-value">24/7</span>
+                                    <span class="metric-label">Threat Monitoring</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">AWS IAM</span>
+                            <span class="tech-tag">VPC Endpoints</span>
+                            <span class="tech-tag">CloudTrail</span>
+                            <span class="tech-tag">GuardDuty</span>
+                            <span class="tech-tag">Security Hub</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section class="section section-gray" id="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <p class="section-subtitle">Exploring the intersection of technology, finance, and creativity</p>
             
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="government">Government</button>
+                <button class="filter-btn" data-filter="ai-ml">AI & ML</button>
+                <button class="filter-btn" data-filter="financial">Financial</button>
+                <button class="filter-btn" data-filter="personal">Personal</button>
+            </div>
+            
             <div class="project-tiles">
-                <a href="#" class="project-tile" onclick="handleProjectClick('trading-series')">
+                <a href="#" class="project-tile" data-category="financial" onclick="handleProjectClick('trading-series')">
                     <div class="project-image">📈</div>
                     <div class="project-content">
                         <h3 class="project-title">Trading Video Series</h3>
@@ -917,7 +1601,7 @@
                     </div>
                 </a>
                 
-                <a href="#" class="project-tile" onclick="handleProjectClick('agentic-ai')">
+                <a href="#" class="project-tile" data-category="ai-ml" onclick="handleProjectClick('agentic-ai')">
                     <div class="project-image">🤖</div>
                     <div class="project-content">
                         <h3 class="project-title">Agentic AI Engineering</h3>
@@ -926,7 +1610,7 @@
                     </div>
                 </a>
                 
-                <a href="#" class="project-tile" onclick="handleProjectClick('claude-coding')">
+                <a href="#" class="project-tile" data-category="ai-ml" onclick="handleProjectClick('claude-coding')">
                     <div class="project-image">💻</div>
                     <div class="project-content">
                         <h3 class="project-title">Claude Coding</h3>
@@ -935,4 +1619,133 @@
                     </div>
                 </a>
                 
-                <a href="#" class="project-tile" onclick="handleProjectClick('cooking
+                <a href="#" class="project-tile" data-category="personal" onclick="handleProjectClick('culinary-fusion')">
+                    <div class="project-image">🍳</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Culinary Fusion Adventures</h3>
+                        <p class="project-description">Exploring the intersection of travel, culture, and cuisine through hands-on cooking experiences and culinary storytelling from around the world.</p>
+                        <span class="project-tag">Personal Project</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="project-tile" data-category="government" onclick="handleProjectClick('fed-modernization')">
+                    <div class="project-image">🏛️</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Federal IT Modernization</h3>
+                        <p class="project-description">Leading large-scale digital transformation initiatives across 18 federal agencies, implementing cloud-first strategies and modern development practices.</p>
+                        <span class="project-tag">Government</span>
+                    </div>
+                </a>
+                
+                <a href="#" class="project-tile" data-category="government" onclick="handleProjectClick('aws-migration')">
+                    <div class="project-image">☁️</div>
+                    <div class="project-content">
+                        <h3 class="project-title">AWS Cloud Migration</h3>
+                        <p class="project-description">Strategic migration of legacy government systems to AWS cloud infrastructure, achieving $12M in cost savings while improving security and scalability.</p>
+                        <span class="project-tag">Cloud Migration</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-white" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Testimonials</h2>
+            <p class="section-subtitle">What clients and colleagues say about working with Tony</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>"Tony's expertise in AWS cloud migration saved our department over $1.8M annually while improving our security posture. His ability to translate complex technical concepts into business value is unmatched."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Sarah Martinez</h4>
+                            <p>CTO, U.S. Department of Agriculture</p>
+                        </div>
+                        <div class="author-avatar">SM</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>"Working with Tony on our AI implementation was transformative. He didn't just deliver technology - he delivered a solution that fundamentally changed how we serve citizens. 95% satisfaction scores speak for themselves."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Director of Digital Services, State Government</p>
+                        </div>
+                        <div class="author-avatar">MC</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>"Tony's zero-trust security architecture gave us confidence to pursue FedRAMP High certification. His attention to both technical detail and compliance requirements was exceptional."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Dr. Amanda Rodriguez</h4>
+                            <p>CISO, Defense Contractor</p>
+                        </div>
+                        <div class="author-avatar">AR</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>"Tony's leadership during our digital transformation was remarkable. He managed to keep 18 federal agencies aligned while delivering on time and under budget. A true systems thinker."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>James Thompson</h4>
+                            <p>Program Manager, Federal IT Modernization</p>
+                        </div>
+                        <div class="author-avatar">JT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Project filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectTiles = document.querySelectorAll('.project-tile');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    projectTiles.forEach(tile => {
+                        if (filterValue === 'all' || tile.getAttribute('data-category') === filterValue) {
+                            tile.classList.remove('hidden');
+                        } else {
+                            tile.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+
+        // Project click handlers
+        function handleProjectClick(projectId) {
+            console.log('Project clicked:', projectId);
+            // Add your project click logic here
+        }
+    </script>
+</body>
+</html>
