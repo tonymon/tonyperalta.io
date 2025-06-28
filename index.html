@@ -703,6 +703,316 @@
             font-weight: 500;
         }
 
+        /* Media & Speaking Section */
+        .featured-media {
+            margin: 3rem 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .aws-video-feature {
+            padding: 2rem;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            background: linear-gradient(135deg, #232f3e, #ff9900);
+            border-radius: 12px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .video-thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            font-size: 3rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        .aws-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #232f3e;
+        }
+
+        .aws-logo {
+            font-size: 1rem;
+        }
+
+        .video-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .video-description {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .video-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff9900, #ff6600);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+        }
+
+        .video-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+            background: linear-gradient(135deg, #ff6600, #ff3300);
+        }
+
+        /* Media Filters */
+        .media-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .media-filter-btn {
+            background: white;
+            border: 2px solid #e2e8f0;
+            color: #4a5568;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .media-filter-btn:hover {
+            border-color: #2b6cb0;
+            color: #2b6cb0;
+            transform: translateY(-2px);
+        }
+
+        .media-filter-btn.active {
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            border-color: #2b6cb0;
+            color: white;
+            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.3);
+        }
+
+        /* Media Grid */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .media-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2b6cb0, #3182ce, #4299e1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .media-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .media-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .media-card.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        .media-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .media-type-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .media-type-badge.video {
+            background: linear-gradient(135deg, #ff9900, #ff6600);
+            color: white;
+        }
+
+        .media-type-badge.speaking {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        .media-type-badge.article {
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            color: white;
+        }
+
+        .media-source {
+            color: #718096;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .media-date {
+            color: #718096;
+            font-size: 0.8rem;
+            background: #f7fafc;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .media-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .media-description {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .media-quote {
+            background: #f7fafc;
+            border-left: 4px solid #2b6cb0;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .media-quote blockquote {
+            color: #2d3748;
+            font-style: italic;
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .media-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .media-tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 0.4rem 0.8rem;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .media-tag:hover {
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            color: white;
+            border-color: #2b6cb0;
+        }
+
+        .media-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #2b6cb0, #3182ce);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.3);
+        }
+
+        .media-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(43, 108, 176, 0.4);
+            background: linear-gradient(135deg, #2c5282, #2b6cb0);
+        }
+
         /* Project Filters */
         .project-filters {
             display: flex;
@@ -1187,6 +1497,32 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .video-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .video-thumbnail {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .media-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .media-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .form-row {
                 grid-template-columns: 1fr;
             }
@@ -1215,6 +1551,7 @@
                 <li><a href="#case-studies">Case Studies</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#media">Media & Speaking</a></li>
             </ul>
         </nav>
     </header>
@@ -1715,6 +2052,139 @@
         </div>
     </section>
 
+    <!-- Media & Speaking Section -->
+    <section class="section section-blue" id="media">
+        <div class="container">
+            <h2 class="section-title">Media & Speaking</h2>
+            <p class="section-subtitle">Recognized expertise in government IT modernization, cloud architecture, and data governance</p>
+            
+            <!-- Featured AWS Video -->
+            <div class="featured-media">
+                <div class="aws-video-feature">
+                    <div class="video-container">
+                        <div class="video-thumbnail">
+                            <div class="play-button">▶</div>
+                            <div class="aws-badge">
+                                <span class="aws-logo">☁️</span>
+                                <span class="aws-text">Featured on AWS Official Channel</span>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">AWS Government Cloud Solutions</h3>
+                            <p class="video-description">Featured discussion on cloud transformation strategies for government agencies and data architecture best practices.</p>
+                            <a href="https://www.youtube.com/watch?v=Tk0fJeRqmfY" target="_blank" rel="noopener" class="video-link">Watch on YouTube</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media Filters -->
+            <div class="media-filters">
+                <button class="media-filter-btn active" data-filter="all">All Media</button>
+                <button class="media-filter-btn" data-filter="video">Video</button>
+                <button class="media-filter-btn" data-filter="speaking">Speaking</button>
+                <button class="media-filter-btn" data-filter="articles">Articles</button>
+            </div>
+            
+            <!-- Media Grid -->
+            <div class="media-grid">
+                <!-- AWS Video Card -->
+                <div class="media-card" data-category="video">
+                    <div class="media-header">
+                        <div class="media-type-badge video">📹 Video</div>
+                        <div class="media-source">AWS Official Channel</div>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Government Cloud Solutions</h3>
+                        <p class="media-description">Featured on the official Amazon Web Services channel discussing cloud transformation strategies for government agencies.</p>
+                        <div class="media-tags">
+                            <span class="media-tag">AWS</span>
+                            <span class="media-tag">Cloud Architecture</span>
+                            <span class="media-tag">Government</span>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=Tk0fJeRqmfY" target="_blank" rel="noopener" class="media-link">Watch Video</a>
+                    </div>
+                </div>
+
+                <!-- MeriTalk Speaking Engagement -->
+                <div class="media-card" data-category="speaking">
+                    <div class="media-header">
+                        <div class="media-type-badge speaking">🎤 Speaking</div>
+                        <div class="media-source">MeriTalk Veritas Vision 19</div>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Cloud Catalysts: Making Data Management a Reality</h3>
+                        <p class="media-description">Panel discussion on government cloud adoption and data management strategies at premier federal technology conference.</p>
+                        <div class="media-tags">
+                            <span class="media-tag">Panel Discussion</span>
+                            <span class="media-tag">Data Management</span>
+                            <span class="media-tag">Federal IT</span>
+                        </div>
+                        <a href="https://meritalk.com/event/veritas-vision-19/agenda/" target="_blank" rel="noopener" class="media-link">View Event</a>
+                    </div>
+                </div>
+
+                <!-- TechTarget Article -->
+                <div class="media-card" data-category="articles">
+                    <div class="media-header">
+                        <div class="media-type-badge article">📰 Article</div>
+                        <div class="media-source">TechTarget</div>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Cloud Data Management Security Top of Mind for Government</h3>
+                        <p class="media-description">Expert insights on cloud security challenges and best practices for government data management initiatives.</p>
+                        <div class="media-tags">
+                            <span class="media-tag">Cloud Security</span>
+                            <span class="media-tag">Data Management</span>
+                            <span class="media-tag">Government</span>
+                        </div>
+                        <a href="https://www.techtarget.com/searchdatamanagement/news/252456934/Cloud-data-management-security-top-of-mind-for-government" target="_blank" rel="noopener" class="media-link">Read Article</a>
+                    </div>
+                </div>
+
+                <!-- Federal News Network Article -->
+                <div class="media-card" data-category="articles">
+                    <div class="media-header">
+                        <div class="media-type-badge article">📰 Article</div>
+                        <div class="media-source">Federal News Network</div>
+                        <div class="media-date">2019</div>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Bureau of the Fiscal Service Moving Toward Open Data Lake Powered by Cloud</h3>
+                        <p class="media-description">Featured discussion on Treasury Department's data lake implementation and the importance of data governance.</p>
+                        <div class="media-quote">
+                            <blockquote>"Unless you have the right governance... that data lake quickly becomes a data swamp."</blockquote>
+                        </div>
+                        <div class="media-tags">
+                            <span class="media-tag">Data Lakes</span>
+                            <span class="media-tag">Treasury</span>
+                            <span class="media-tag">Data Governance</span>
+                        </div>
+                        <a href="https://federalnewsnetwork.com/cloud-computing/2019/02/bureau-of-the-fiscal-service-moving-toward-open-data-lake-powered-by-cloud/" target="_blank" rel="noopener" class="media-link">Read Article</a>
+                    </div>
+                </div>
+
+                <!-- ExecutiveGov Article -->
+                <div class="media-card" data-category="articles">
+                    <div class="media-header">
+                        <div class="media-type-badge article">📰 Article</div>
+                        <div class="media-source">ExecutiveGov</div>
+                    </div>
+                    <div class="media-content">
+                        <h3 class="media-title">Treasury Dept's Fiscal Service Implementing Cloud-Based Data Lake for Call Center Operations</h3>
+                        <p class="media-description">Coverage of advanced cloud implementation for call center modernization and customer experience enhancement.</p>
+                        <div class="media-tags">
+                            <span class="media-tag">Cloud Implementation</span>
+                            <span class="media-tag">Call Centers</span>
+                            <span class="media-tag">Customer Experience</span>
+                        </div>
+                        <a href="https://executivegov.com/article/treasury-depts-fiscal-service-implementing-cloud-based-data-lake-for-call-center-operations" target="_blank" rel="noopener" class="media-link">Read Article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
         // Project filtering functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1739,6 +2209,40 @@
                     });
                 });
             });
+
+            // Media filtering functionality
+            const mediaFilterBtns = document.querySelectorAll('.media-filter-btn');
+            const mediaCards = document.querySelectorAll('.media-card');
+
+            mediaFilterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all media filter buttons
+                    mediaFilterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    mediaCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // AWS video thumbnail click handler
+            const videoThumbnail = document.querySelector('.video-thumbnail');
+            if (videoThumbnail) {
+                videoThumbnail.addEventListener('click', function() {
+                    const videoLink = document.querySelector('.video-link');
+                    if (videoLink) {
+                        window.open(videoLink.href, '_blank');
+                    }
+                });
+            }
         });
 
         // Project click handlers
