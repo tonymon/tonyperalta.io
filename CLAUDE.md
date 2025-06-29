@@ -1,6 +1,6 @@
-# CLAUDE.md - Portfolio Development Guide
+# CLAUDE.md
 
-This document provides context and guidance for Claude Code instances working on Tony Peralta's portfolio website.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Repository Overview
 
@@ -9,18 +9,28 @@ This is a static portfolio website for Tony Peralta, an IT leader and AI enginee
 ## Architecture & File Structure
 
 ### Core Files
-- **`index.html`** - Production portfolio (deployed live)
-- **`staging.html`** - Development environment with staging banner
+- **`index.html`** - Production portfolio (754 lines, deployed live)
+- **`staging.html`** - Development environment with staging banner (840 lines)
+- **`styles.css`** - Shared CSS styles for both HTML files (1,782 lines)
+- **`script.js`** - Shared JavaScript functionality (139 lines)
 - **`STAGING-README.md`** - Comprehensive staging system documentation
-- **`CNAME`** - Domain configuration for GitHub Pages
+- **`CNAME`** - Domain configuration for GitHub Pages (tonyperalta.io)
 - **`pictures/`** - Image assets directory
   - `OpenPagePicture.png` - Hero section background (desert landscape)
   - `travel/` - Photo gallery images for "Beyond the Code" section
 
+### Modular Architecture
+The codebase uses a **decoupled architecture** for maintainability:
+- **Shared Stylesheets**: `styles.css` contains all styling for both production and staging
+- **Shared Scripts**: `script.js` contains interactive functionality (lightbox, filtering, smooth scrolling)
+- **Staging-Specific CSS**: Only staging banner styles are inline in `staging.html`
+
 ### Dual-File System
-The repository uses a staging/production workflow:
-- **Production (`index.html`)**: Only production-ready content
-- **Staging (`staging.html`)**: Development environment with red banner, includes all sections plus work-in-progress content like testimonials
+**Production (`index.html`)**: Clean, optimized content ready for public deployment
+**Staging (`staging.html`)**: Development environment with:
+- Red staging banner at top
+- All production content plus work-in-progress sections
+- Testimonials section (ready but contains placeholder content)
 
 ## Key Features & Implementation
 
@@ -96,25 +106,92 @@ The repository uses a staging/production workflow:
 3. **Move to Production**: Copy ready sections to `index.html`
 4. **Deploy**: Commit changes to trigger GitHub Pages deployment
 
-## Common Tasks & Commands
+## Development Commands
 
-### Image Management
+### Local Development
 ```bash
-# Add new images to repository
-git add pictures/
-git commit -m "Add new images"
-git push
+# Serve locally (use any static server)
+python -m http.server 8000
+# or
+npx serve .
+# or
+live-server
 ```
 
-### Mobile Testing
-- Test hero section background positioning
-- Verify touch interactions in photo gallery
-- Check navigation and button accessibility
+### File Management
+```bash
+# Make changes to shared styles
+vim styles.css  # Changes affect both index.html and staging.html
 
-### Content Updates
-- **Contact Info**: Use `tony@tonyperalta.io` for all contact references
-- **Staging Banner**: Maintain red banner in staging.html for visual distinction
+# Add new images to gallery
+cp new_image.jpg pictures/travel/
+git add pictures/travel/new_image.jpg
+```
+
+### Testing Workflow
+```bash
+# Test staging environment
+open staging.html  # or http://localhost:8000/staging.html
+
+# Test production environment  
+open index.html    # or http://localhost:8000/index.html
+
+# Test mobile responsiveness (key breakpoint at 768px)
+# Use browser dev tools or resize window
+```
+
+### Deployment
+```bash
+# Deploy to production (GitHub Pages auto-deploys)
+git add index.html styles.css script.js
+git commit -m "Update production site"
+git push origin main
+```
+
+## Content Management Guidelines
+
+### Development Process
+1. **Always start in staging**: Make changes to `staging.html` first
+2. **Test thoroughly**: Verify responsive design and functionality
+3. **Update shared files**: Modify `styles.css` or `script.js` as needed
+4. **Move to production**: Copy ready sections from staging to `index.html`
+5. **Deploy**: Commit and push changes
+
+### Photo Gallery Management
+**Hard-coded image references**: Photo gallery uses manually defined image paths in HTML
+- To add photos: Add images to `pictures/travel/` AND manually add HTML elements
+- Pattern: `<div class="photo-item" data-image="path">` with matching `<img src="path">`
+- Remove photos: Delete both file and corresponding HTML elements
+
+### Contact Information
+- **Email**: Always use `tony@tonyperalta.io` for contact references
 - **Professional Content**: Only include verifiable achievements and metrics
+
+### Staging vs Production Differences
+**Critical**: `staging.html` contains additional sections not in production:
+- **Testimonials section**: Fully styled but contains placeholder content
+- **Red staging banner**: Visual indicator for development environment
+- **Navigation**: Includes "Testimonials" link in staging only
+
+## Technical Architecture
+
+### CSS Organization (`styles.css`)
+- **Mobile-first responsive design** with `@media (max-width: 768px)` breakpoint
+- **CSS Grid and Flexbox** for layout systems
+- **Glass-morphism effects** using `backdrop-filter: blur()`
+- **Component-based styling**: Each section has dedicated CSS classes
+- **Animation keyframes**: Floating animations, hover effects, and transitions
+
+### JavaScript Functionality (`script.js`)
+- **Project and Media Filtering**: Dynamic content filtering with `.filter-btn` and `.media-filter-btn`
+- **Photo Gallery Lightbox**: Full-screen modal with keyboard navigation (Arrow keys, ESC)
+- **Smooth Scrolling**: Automatic scroll behavior for navigation links
+- **Event Delegation**: Efficient event handling for interactive elements
+
+### Mobile Optimization Critical Details
+- **Hero Background Position**: Must be `22% center` on mobile to keep Tony visible in photo
+- **Touch Interactions**: Photo gallery optimized for mobile touch/swipe
+- **Responsive Grids**: Metrics change from 4-column to 2-column on mobile
 
 ## Technical Considerations
 
@@ -140,12 +217,36 @@ git push
 - **Professional Focus**: IT leadership, AI engineering, federal consulting
 - **Content Approach**: Factual, metrics-driven, professional tone
 
-## Future Development Notes
+## Deployment & GitHub Pages
 
-- **Testimonials**: Ready to activate when real client feedback is available
-- **Case Studies**: Template established for additional project showcases
-- **Media Section**: Expandable for new speaking engagements and coverage
-- **Photo Gallery**: Easily updatable with new travel/personal content
+### Live Site
+- **Production URL**: https://tonyperalta.io (auto-deploys from `main` branch)
+- **GitHub Pages Source**: `main` branch, root directory
+- **Custom Domain**: Configured via `CNAME` file
 
-This documentation ensures consistent development approaches and maintains the professional quality and performance standards established for the portfolio.
+### File Dependencies
+**Critical**: All assets must be committed to repository (no external CDNs)
+- Images in `pictures/` directory are directly referenced in HTML
+- `styles.css` and `script.js` are linked relatively from HTML files
+- Changes to any file require git commit + push to deploy
+
+## Content Status
+
+### Production-Ready Sections (in `index.html`)
+- ✅ Hero section with desert landscape background
+- ✅ Professional metrics with tooltips
+- ✅ Technical expertise showcase
+- ✅ AWS certifications (6 credentials)
+- ✅ Case studies (3 detailed projects with metrics)
+- ✅ Project portfolio with filtering
+- ✅ Media & Speaking (5 major appearances)
+- ✅ Beyond the Code photo gallery (18+ travel photos)
+
+### Staging-Only Content (in `staging.html`)
+- 🚧 **Testimonials section**: Fully built and styled, contains placeholder testimonials waiting for real client feedback
+
+### Key Integration Points
+- **Email Contact**: `tony@tonyperalta.io` used throughout site
+- **Professional Tone**: Factual, metrics-driven content approach
+- **Federal Focus**: Emphasizes government IT and AWS expertise
 EOF < /dev/null

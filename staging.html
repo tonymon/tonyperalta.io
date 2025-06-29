@@ -4,1627 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tony Peralta - IT Leader & AI Engineer (STAGING)</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #2d3748;
-            background: #f7fafc;
-        }
-
-        /* Header Navigation */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(247, 250, 252, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid #e2e8f0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .logo {
-            font-weight: 600;
-            font-size: 1.25rem;
-            color: #2b6cb0;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #4a5568;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #2b6cb0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #2b6cb0, #3182ce);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 50%, #e2e8f0 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding-top: 70px;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="200" cy="200" r="100" fill="rgba(43,108,176,0.03)"/><circle cx="800" cy="300" r="150" fill="rgba(49,130,206,0.02)"/><circle cx="500" cy="800" r="120" fill="rgba(43,108,176,0.04)"/></svg>');
-            animation: float 30s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #2d3748, #4a5568, #2b6cb0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-        }
-
-        .hero-text h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            color: #4a5568;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #718096;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(43, 108, 176, 0.4);
-            background: linear-gradient(135deg, #2c5282, #2b6cb0);
-        }
-
-        .hero-visual {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .profile-container {
-            position: relative;
-            width: 500px;
-            height: 400px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            border: 1px solid #e2e8f0;
-            background: white;
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-            border-radius: 16px;
-            display: block;
-            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
-        }
-
-        .image-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #718096;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .placeholder-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
-
-        .floating-metrics {
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            z-index: 3;
-        }
-
-        .metric-bubble {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 1.25rem 1rem;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            animation: float-bubble 6s ease-in-out infinite;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            min-height: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .metric-bubble:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 12px 35px rgba(43, 108, 176, 0.2);
-            border-color: #2b6cb0;
-        }
-
-        .metric-bubble:nth-child(1) { animation-delay: 0s; }
-        .metric-bubble:nth-child(2) { animation-delay: 1.5s; }
-        .metric-bubble:nth-child(3) { animation-delay: 3s; }
-        .metric-bubble:nth-child(4) { animation-delay: 4.5s; }
-
-        @keyframes float-bubble {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
-
-        .metric-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.8;
-        }
-
-        .metric-number {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #2b6cb0;
-            margin-bottom: 0.25rem;
-            line-height: 1;
-        }
-
-        .metric-label {
-            color: #2d3748;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .metric-subtitle {
-            color: #718096;
-            font-size: 0.65rem;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        /* Tooltip Styles */
-        .metric-bubble::before {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 120%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(45, 55, 72, 0.95);
-            color: white;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            line-height: 1.4;
-            width: 250px;
-            text-align: left;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .metric-bubble::after {
-            content: '';
-            position: absolute;
-            bottom: 115%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 6px solid transparent;
-            border-top-color: rgba(45, 55, 72, 0.95);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .metric-bubble:hover::before,
-        .metric-bubble:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 6rem 0;
-        }
-
-        .section-white {
-            background: white;
-        }
-
-        .section-gray {
-            background: #f7fafc;
-        }
-
-        .section-blue {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #4a5568;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Expertise Section */
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .expertise-category {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .category-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2b6cb0;
-            margin-bottom: 1.5rem;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-tag {
-            background: #edf2f7;
-            color: #4a5568;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            color: white;
-            border-color: #2b6cb0;
-            transform: translateY(-2px);
-        }
-
-        /* Case Studies */
-        .case-studies-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .case-study-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .case-study-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #2b6cb0, #3182ce, #4299e1);
-        }
-
-        .case-study-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .case-study-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .case-study-icon {
-            font-size: 3rem;
-            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #e2e8f0;
-        }
-
-        .case-study-meta {
-            flex: 1;
-        }
-
-        .case-study-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-
-        .case-study-client {
-            color: #2b6cb0;
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .case-study-timeframe {
-            color: #718096;
-            font-size: 0.9rem;
-        }
-
-        .case-study-content {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .challenge-section h4,
-        .solution-section h4,
-        .results-section h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #2b6cb0;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .challenge-section h4::before {
-            content: '🎯';
-            font-size: 1rem;
-        }
-
-        .solution-section h4::before {
-            content: '🚀';
-            font-size: 1rem;
-        }
-
-        .results-section h4::before {
-            content: '📈';
-            font-size: 1rem;
-        }
-
-        .challenge-section p,
-        .solution-section p {
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        .results-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .metric {
-            text-align: center;
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .metric:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.1);
-        }
-
-        .metric-value {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2b6cb0;
-            margin-bottom: 0.25rem;
-        }
-
-        .metric-label {
-            font-size: 0.8rem;
-            color: #4a5568;
-            font-weight: 500;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-tag {
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #2b6cb0, #3182ce, #4299e1);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .testimonial-content {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .quote-icon {
-            font-size: 4rem;
-            color: #2b6cb0;
-            font-family: Georgia, serif;
-            position: absolute;
-            top: -1rem;
-            left: -0.5rem;
-            opacity: 0.3;
-            z-index: 1;
-        }
-
-        .testimonial-content p {
-            color: #4a5568;
-            line-height: 1.7;
-            font-size: 1rem;
-            font-style: italic;
-            position: relative;
-            z-index: 2;
-            padding-left: 1rem;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-info h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 0.25rem;
-        }
-
-        .author-info p {
-            font-size: 0.9rem;
-            color: #718096;
-            margin: 0;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-
-        /* Certifications */
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .certification-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .certification-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .cert-badge {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cert-icon {
-            font-size: 2.5rem;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #e2e8f0;
-        }
-
-        .cert-level {
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .cert-content {
-            flex: 1;
-        }
-
-        .cert-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
-
-        .cert-description {
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .cert-details {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .cert-id {
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            color: #718096;
-            background: #f7fafc;
-            padding: 0.25rem 0.5rem;
-            border-radius: 6px;
-            border: 1px solid #e2e8f0;
-            align-self: flex-start;
-        }
-
-        .cert-date {
-            font-size: 0.85rem;
-            color: #2b6cb0;
-            font-weight: 500;
-        }
-
-        /* Media & Speaking Section */
-        .featured-media {
-            margin: 3rem 0;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e2e8f0;
-        }
-
-        .aws-video-feature {
-            padding: 2rem;
-        }
-
-        .video-container {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .video-thumbnail {
-            position: relative;
-            background: linear-gradient(135deg, #232f3e, #ff9900);
-            border-radius: 12px;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .video-thumbnail:hover {
-            transform: scale(1.05);
-        }
-
-        .play-button {
-            font-size: 3rem;
-            color: white;
-            background: rgba(0, 0, 0, 0.7);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .play-button:hover {
-            background: rgba(0, 0, 0, 0.9);
-            transform: scale(1.1);
-        }
-
-        .aws-badge {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #232f3e;
-        }
-
-        .aws-logo {
-            font-size: 1rem;
-        }
-
-        .video-info h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .video-description {
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .video-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff9900, #ff6600);
-            color: white;
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
-        }
-
-        .video-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
-            background: linear-gradient(135deg, #ff6600, #ff3300);
-        }
-
-        /* Media Filters */
-        .media-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 3rem 0 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .media-filter-btn {
-            background: white;
-            border: 2px solid #e2e8f0;
-            color: #4a5568;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .media-filter-btn:hover {
-            border-color: #2b6cb0;
-            color: #2b6cb0;
-            transform: translateY(-2px);
-        }
-
-        .media-filter-btn.active {
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            border-color: #2b6cb0;
-            color: white;
-            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.3);
-        }
-
-        /* Media Grid */
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .media-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .media-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #2b6cb0, #3182ce, #4299e1);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .media-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .media-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .media-card.hidden {
-            opacity: 0;
-            transform: scale(0.8);
-            pointer-events: none;
-        }
-
-        .media-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .media-type-badge {
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .media-type-badge.video {
-            background: linear-gradient(135deg, #ff9900, #ff6600);
-            color: white;
-        }
-
-        .media-type-badge.speaking {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-        }
-
-        .media-type-badge.article {
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            color: white;
-        }
-
-        .media-source {
-            color: #718096;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .media-date {
-            color: #718096;
-            font-size: 0.8rem;
-            background: #f7fafc;
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .media-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .media-description {
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .media-quote {
-            background: #f7fafc;
-            border-left: 4px solid #2b6cb0;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .media-quote blockquote {
-            color: #2d3748;
-            font-style: italic;
-            font-size: 1rem;
-            margin: 0;
-            font-weight: 500;
-        }
-
-        .media-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .media-tag {
-            background: #edf2f7;
-            color: #4a5568;
-            padding: 0.4rem 0.8rem;
-            border-radius: 16px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-
-        .media-tag:hover {
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            color: white;
-            border-color: #2b6cb0;
-        }
-
-        .media-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            color: white;
-            padding: 0.7rem 1.5rem;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.3);
-        }
-
-        .media-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(43, 108, 176, 0.4);
-            background: linear-gradient(135deg, #2c5282, #2b6cb0);
-        }
-
-        /* Project Filters */
-        .project-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 3rem 0 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: white;
-            border: 2px solid #e2e8f0;
-            color: #4a5568;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .filter-btn:hover {
-            border-color: #2b6cb0;
-            color: #2b6cb0;
-            transform: translateY(-2px);
-        }
-
-        .filter-btn.active {
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            border-color: #2b6cb0;
-            color: white;
-            box-shadow: 0 4px 15px rgba(43, 108, 176, 0.3);
-        }
-
-        .project-tile {
-            opacity: 1;
-            transition: all 0.3s ease;
-        }
-
-        .project-tile.hidden {
-            opacity: 0;
-            transform: scale(0.8);
-            pointer-events: none;
-        }
-
-        /* Project Tiles */
-        .project-tiles {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-tile {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .project-tile:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border-color: #2b6cb0;
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: #718096;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(43,108,176,0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .project-tile:hover .project-image::before {
-            left: 100%;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-description {
-            color: #4a5568;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #2b6cb0, #3182ce);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-top: 1rem;
-        }
-
-        /* Achievements Grid */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .achievement-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .achievement-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #2b6cb0, #3182ce, transparent);
-            transition: left 0.6s ease;
-        }
-
-        .achievement-card:hover::before {
-            left: 100%;
-        }
-
-        .achievement-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .achievement-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #2b6cb0;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-desc {
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        /* Travel Section */
-        .travel-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .travel-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .travel-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .travel-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #4a5568 0%, #2b6cb0 50%, #3182ce 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 500;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .travel-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.2)"/><circle cx="80" cy="30" r="0.8" fill="rgba(255,255,255,0.15)"/><circle cx="30" cy="70" r="0.6" fill="rgba(255,255,255,0.25)"/><circle cx="70" cy="80" r="1.2" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="40" r="0.9" fill="rgba(255,255,255,0.2)"/></svg>');
-            animation: subtle-sparkle 8s ease-in-out infinite;
-        }
-
-        @keyframes subtle-sparkle {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        .travel-content {
-            padding: 1.5rem;
-        }
-
-        .travel-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-
-        .travel-description {
-            color: #4a5568;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .travel-date {
-            color: #2b6cb0;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-
-        /* Personal Section */
-        .personal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .personal-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .personal-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .personal-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .personal-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .personal-desc {
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, #2d3748 0%, #4a5568 50%, #2b6cb0 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path d="M0,100 Q250,50 500,100 T1000,100 L1000,0 L0,0 Z" fill="rgba(255,255,255,0.05)"/></svg>');
-        }
-
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .form-input {
-            padding: 1rem;
-            border: 1px solid rgba(226, 232, 240, 0.3);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #3182ce;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .form-textarea {
-            grid-column: 1 / -1;
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            justify-self: center;
-            background: linear-gradient(135deg, #3182ce, #2b6cb0);
-            color: white;
-            border: none;
-            padding: 1rem 3rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(49, 130, 206, 0.3);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(49, 130, 206, 0.4);
-        }
-
-        /* Tech Icons */
-        .tech-icons {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tech-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            animation: tech-float 4s ease-in-out infinite;
-        }
-
-        .tech-icon:nth-child(1) { animation-delay: 0s; }
-        .tech-icon:nth-child(2) { animation-delay: 0.5s; }
-        .tech-icon:nth-child(3) { animation-delay: 1s; }
-        .tech-icon:nth-child(4) { animation-delay: 1.5s; }
-
-        @keyframes tech-float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
-        }
-
-        .tech-icon:hover {
-            transform: translateY(-8px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(43, 108, 176, 0.3);
-            border-color: #2b6cb0;
-        }
-
-        .tech-icon.aws {
-            color: #ff9900;
-        }
-
-        .tech-icon.python {
-            color: #3776ab;
-        }
-
-        .tech-icon.gitlab {
-            color: #fc6d26;
-        }
-
-        .tech-icon.ai {
-            color: #2b6cb0;
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .profile-container {
-                width: 100%;
-                max-width: 400px;
-                height: 300px;
-            }
-
-            .floating-metrics {
-                position: static;
-                margin-top: 2rem;
-                justify-self: center;
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-                max-width: 400px;
-            }
-
-            .metric-bubble {
-                min-height: 100px;
-                padding: 1rem 0.75rem;
-            }
-
-            .metric-bubble::before {
-                width: 200px;
-                font-size: 0.75rem;
-            }
-
-            .expertise-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .case-study-header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .case-study-icon {
-                align-self: center;
-            }
-
-            .results-metrics {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .video-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .video-thumbnail {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-
-            .media-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .media-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-
-            .media-filters {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .tech-icons {
-                margin-top: 1rem;
-                grid-column: 1 / -1;
-                justify-self: center;
-            }
-        }
-
-        /* Smooth scroll offset for fixed header */
-        html {
-            scroll-padding-top: 70px;
-        }
-
         /* Staging Banner */
         .staging-banner {
             background: linear-gradient(135deg, #f56565, #e53e3e);
@@ -1667,6 +48,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#media">Media & Speaking</a></li>
+                <li><a href="#beyond-code">Beyond the Code</a></li>
             </ul>
         </nav>
     </header>
@@ -1675,42 +57,43 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
+                <div class="hero-text-overlay">
                     <h1>Tony Peralta</h1>
                     <h2>IT Leader & AI Engineer</h2>
                     <p>Transforming government systems through strategic AWS cloud migration, AI integration, and data-driven solutions. Bringing vision and leadership to every digital challenge.</p>
-                    <a href="mailto:tony@tonyperalta.io" class="cta-button">Let's Connect</a>
                 </div>
-                <div class="hero-visual">
-                    <div class="profile-container">
-                        <img src="OpenPagePicture.png" alt="Tony Peralta in the desert dunes" class="profile-image" />
-                    </div>
-                    <div class="floating-metrics">
-                        <div class="metric-bubble" data-tooltip="$12 million in infrastructure cost savings achieved through strategic AWS cloud migrations, modernizing legacy systems while improving performance and security">
-                            <div class="metric-icon">💰</div>
-                            <div class="metric-number">$12M</div>
-                            <div class="metric-label">Cost Savings</div>
-                            <div class="metric-subtitle">AWS Cloud Migrations</div>
-                        </div>
-                        <div class="metric-bubble" data-tooltip="Over 20 years of IT architecture and leadership experience across government and enterprise environments, specializing in digital transformation">
-                            <div class="metric-icon">🕐</div>
-                            <div class="metric-number">20+</div>
-                            <div class="metric-label">Years Experience</div>
-                            <div class="metric-subtitle">IT Architecture Leadership</div>
-                        </div>
-                        <div class="metric-bubble" data-tooltip="Seven major legacy systems successfully modernized and migrated to AWS cloud infrastructure, achieving 99.9% uptime SLA and enhanced security compliance">
-                            <div class="metric-icon">☁️</div>
-                            <div class="metric-number">7</div>
-                            <div class="metric-label">Systems Modernized</div>
-                            <div class="metric-subtitle">Legacy to AWS Cloud</div>
-                        </div>
-                        <div class="metric-bubble" data-tooltip="18 years of distinguished federal government service as an IT leader at Treasury Department, driving digital transformation initiatives">
-                            <div class="metric-icon">🏛️</div>
-                            <div class="metric-number">18</div>
-                            <div class="metric-label">Years Federal</div>
-                            <div class="metric-subtitle">Treasury Department</div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics-section">
+        <div class="metrics-container">
+            <a href="mailto:tony@tonyperalta.io" class="cta-button-standalone">Let's Connect</a>
+            <div class="floating-metrics">
+                <div class="metric-bubble" data-tooltip="Over 20 years of IT architecture and leadership experience across government and enterprise environments, specializing in digital transformation">
+                    <div class="metric-icon">🕐</div>
+                    <div class="metric-number">20+</div>
+                    <div class="metric-label">Years Experience</div>
+                    <div class="metric-subtitle">IT Architecture Leadership</div>
+                </div>
+                <div class="metric-bubble" data-tooltip="$12 million in infrastructure cost savings achieved through strategic AWS cloud migrations, modernizing legacy systems while improving performance and security">
+                    <div class="metric-icon">💰</div>
+                    <div class="metric-number">$12M</div>
+                    <div class="metric-label">Cost Savings</div>
+                    <div class="metric-subtitle">AWS Cloud Migrations</div>
+                </div>
+                <div class="metric-bubble" data-tooltip="18 years of distinguished federal government service as an IT leader at Treasury Department, driving digital transformation initiatives">
+                    <div class="metric-icon">🏛️</div>
+                    <div class="metric-number">18</div>
+                    <div class="metric-label">Years Federal</div>
+                    <div class="metric-subtitle">Treasury Department</div>
+                </div>
+                <div class="metric-bubble" data-tooltip="Seven major legacy systems successfully modernized and migrated to AWS cloud infrastructure, achieving 99.9% uptime SLA and enhanced security compliance">
+                    <div class="metric-icon">☁️</div>
+                    <div class="metric-number">7</div>
+                    <div class="metric-label">Systems Modernized</div>
+                    <div class="metric-subtitle">Legacy to AWS Cloud</div>
                 </div>
             </div>
         </div>
@@ -2112,63 +495,52 @@
     <!-- Testimonials Section -->
     <section class="section section-white" id="testimonials">
         <div class="container">
-            <h2 class="section-title">Client Testimonials</h2>
+            <h2 class="section-title">Testimonials</h2>
             <p class="section-subtitle">What clients and colleagues say about working with Tony</p>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">"</div>
-                        <p>"Tony's expertise in AWS cloud migration saved our department over $1.8M annually while improving our security posture. His ability to translate complex technical concepts into business value is unmatched."</p>
+                    <div class="testimonial-quote">
+                        "Tony's expertise in cloud architecture and data governance transformed our federal compliance framework. His leadership during our AWS migration saved us months of development time."
                     </div>
                     <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
                         <div class="author-info">
-                            <h4>Sarah Martinez</h4>
-                            <p>CTO, U.S. Department of Agriculture</p>
+                            <div class="author-name">Dr. Jane Doe</div>
+                            <div class="author-title">Chief Technology Officer</div>
+                            <div class="author-company">Department of Defense</div>
                         </div>
-                        <div class="author-avatar">SM</div>
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">"</div>
-                        <p>"Working with Tony on our AI implementation was transformative. He didn't just deliver technology - he delivered a solution that fundamentally changed how we serve citizens. 95% satisfaction scores speak for themselves."</p>
+                    <div class="testimonial-quote">
+                        "Working with Tony on our AI implementation was exceptional. His ability to bridge technical complexity with business requirements is unmatched in the federal space."
                     </div>
                     <div class="testimonial-author">
+                        <div class="author-avatar">MS</div>
                         <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <p>Director of Digital Services, State Government</p>
+                            <div class="author-name">Michael Smith</div>
+                            <div class="author-title">Program Director</div>
+                            <div class="author-company">GSA Technology Transformation</div>
                         </div>
-                        <div class="author-avatar">MC</div>
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">"</div>
-                        <p>"Tony's zero-trust security architecture gave us confidence to pursue FedRAMP High certification. His attention to both technical detail and compliance requirements was exceptional."</p>
+                    <div class="testimonial-quote">
+                        "Tony's strategic vision for our enterprise architecture modernization exceeded all expectations. His team delivered a robust, scalable solution ahead of schedule."
                     </div>
                     <div class="testimonial-author">
+                        <div class="author-avatar">SJ</div>
                         <div class="author-info">
-                            <h4>Dr. Amanda Rodriguez</h4>
-                            <p>CISO, Defense Contractor</p>
+                            <div class="author-name">Sarah Johnson</div>
+                            <div class="author-title">Enterprise Architect</div>
+                            <div class="author-company">Veterans Affairs</div>
                         </div>
-                        <div class="author-avatar">AR</div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">"</div>
-                        <p>"Tony's leadership during our digital transformation was remarkable. He managed to keep 18 federal agencies aligned while delivering on time and under budget. A true systems thinker."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>James Thompson</h4>
-                            <p>Program Manager, Federal IT Modernization</p>
-                        </div>
-                        <div class="author-avatar">JT</div>
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
                     </div>
                 </div>
             </div>
@@ -2308,71 +680,161 @@
         </div>
     </section>
 
-    <script>
-        // Project filtering functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const projectTiles = document.querySelectorAll('.project-tile');
+    <!-- Beyond the Code Section -->
+    <section class="section section-white" id="beyond-code">
+        <div class="container">
+            <h2 class="section-title">Beyond the Code</h2>
+            <p class="section-subtitle">Adventures, perspectives, and life beyond technology</p>
+            
+            <div class="photo-gallery">
+                <div class="photo-item" data-image="pictures/travel/20240613_074004.jpg">
+                    <img src="pictures/travel/20240613_074004.jpg" alt="Travel adventure" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/20240615_182910.jpg">
+                    <img src="pictures/travel/20240615_182910.jpg" alt="Travel experience" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/20240616_152630.jpg">
+                    <img src="pictures/travel/20240616_152630.jpg" alt="Adventure photography" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/20240618_153931.jpg">
+                    <img src="pictures/travel/20240618_153931.jpg" alt="Travel destination" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/20240620_131533.jpg">
+                    <img src="pictures/travel/20240620_131533.jpg" alt="Exploration journey" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/20240621_170950.jpg">
+                    <img src="pictures/travel/20240621_170950.jpg" alt="Travel memories" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/PXL_20241203_115404473.MP.jpg">
+                    <img src="pictures/travel/PXL_20241203_115404473.MP.jpg" alt="Adventure landscape" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/PXL_20241205_145334758.jpg">
+                    <img src="pictures/travel/PXL_20241205_145334758.jpg" alt="Travel experience" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/20240621_220122.jpg">
+                    <img src="pictures/travel/20240621_220122.jpg" alt="Evening adventure" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/20240623_174337.jpg">
+                    <img src="pictures/travel/20240623_174337.jpg" alt="Scenic journey" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/PXL_20240928_223602429.MP.jpg">
+                    <img src="pictures/travel/PXL_20240928_223602429.MP.jpg" alt="Adventure photography" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/PXL_20241204_170018394.MP.jpg">
+                    <img src="pictures/travel/PXL_20241204_170018394.MP.jpg" alt="Travel destination" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/PXL_20241205_150718893.jpg">
+                    <img src="pictures/travel/PXL_20241205_150718893.jpg" alt="Exploration moment" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/PXL_20241205_151149225.jpg">
+                    <img src="pictures/travel/PXL_20241205_151149225.jpg" alt="Travel memory" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/PXL_20241205_165044024.MP.jpg">
+                    <img src="pictures/travel/PXL_20241205_165044024.MP.jpg" alt="Adventure landscape" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/PXL_20250417_220658463.jpg">
+                    <img src="pictures/travel/PXL_20250417_220658463.jpg" alt="Travel adventure" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/PXL_20250417_221212792.MP.jpg">
+                    <img src="pictures/travel/PXL_20250417_221212792.MP.jpg" alt="Evening exploration" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/PXL_20250418_161736633.PANO.jpg">
+                    <img src="pictures/travel/PXL_20250418_161736633.PANO.jpg" alt="Panoramic adventure" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+                
+                <div class="photo-item" data-image="pictures/travel/Screenshot_20240612-230359_Maps.jpg">
+                    <img src="pictures/travel/Screenshot_20240612-230359_Maps.jpg" alt="Travel planning" loading="lazy">
+                    <div class="photo-overlay">
+                        <div class="photo-zoom">🔍</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-image" src="" alt="">
+            <div class="lightbox-nav">
+                <button id="lightbox-prev">&#8249;</button>
+                <button id="lightbox-next">&#8250;</button>
+            </div>
+        </div>
+    </div>
 
-                    const filterValue = this.getAttribute('data-filter');
-
-                    projectTiles.forEach(tile => {
-                        if (filterValue === 'all' || tile.getAttribute('data-category') === filterValue) {
-                            tile.classList.remove('hidden');
-                        } else {
-                            tile.classList.add('hidden');
-                        }
-                    });
-                });
-            });
-
-            // Media filtering functionality
-            const mediaFilterBtns = document.querySelectorAll('.media-filter-btn');
-            const mediaCards = document.querySelectorAll('.media-card');
-
-            mediaFilterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remove active class from all media filter buttons
-                    mediaFilterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-
-                    const filterValue = this.getAttribute('data-filter');
-
-                    mediaCards.forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                            card.classList.remove('hidden');
-                        } else {
-                            card.classList.add('hidden');
-                        }
-                    });
-                });
-            });
-
-            // AWS video thumbnail click handler
-            const videoThumbnail = document.querySelector('.video-thumbnail');
-            if (videoThumbnail) {
-                videoThumbnail.addEventListener('click', function() {
-                    const videoLink = document.querySelector('.video-link');
-                    if (videoLink) {
-                        window.open(videoLink.href, '_blank');
-                    }
-                });
-            }
-        });
-
-        // Project click handlers
-        function handleProjectClick(projectId) {
-            console.log('Project clicked:', projectId);
-            // Add your project click logic here
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
