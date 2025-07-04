@@ -9,8 +9,8 @@ This is a static portfolio website for Tony Peralta, an IT leader and AI enginee
 ## Architecture & File Structure
 
 ### Core Files
-- **`index.html`** - Production portfolio (754 lines, deployed live)
-- **`staging.html`** - Development environment with staging banner (840 lines)
+- **`index.html`** - Production portfolio (742 lines, deployed live)
+- **`staging.html`** - Development environment with staging banner (833 lines)
 - **`styles.css`** - Shared CSS styles for both HTML files (1,782 lines)
 - **`script.js`** - Shared JavaScript functionality (139 lines)
 - **`STAGING-README.md`** - Comprehensive staging system documentation
@@ -159,9 +159,10 @@ git push origin main
 
 ### Photo Gallery Management
 **Hard-coded image references**: Photo gallery uses manually defined image paths in HTML
-- To add photos: Add images to `pictures/travel/` AND manually add HTML elements
-- Pattern: `<div class="photo-item" data-image="path">` with matching `<img src="path">`
-- Remove photos: Delete both file and corresponding HTML elements
+- **To add photos**: Add images to `pictures/travel/` AND manually add HTML elements in both `index.html` and `staging.html`
+- **Pattern**: `<div class="photo-item" data-image="path">` with matching `<img src="path">`
+- **To remove photos**: Delete image file AND remove corresponding HTML elements from both files
+- **Important**: Gallery count must stay synchronized between production and staging files
 
 ### Contact Information
 - **Email**: Always use `tony@tonyperalta.io` for contact references
@@ -240,7 +241,7 @@ git push origin main
 - ✅ Case studies (3 detailed projects with metrics)
 - ✅ Project portfolio with filtering
 - ✅ Media & Speaking (5 major appearances)
-- ✅ Beyond the Code photo gallery (18+ travel photos)
+- ✅ Beyond the Code photo gallery (17 travel photos)
 
 ### Staging-Only Content (in `staging.html`)
 - 🚧 **Testimonials section**: Fully built and styled, contains placeholder testimonials waiting for real client feedback
