@@ -6,6 +6,71 @@
   <title>Tony Peralta — Agentic AI Engineer &amp; Federal IT Leader</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles-v4.css">
+  <style>
+    /* ── Media list row override (replaces card grid) ── */
+    ol.media-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid var(--rule, #d4cec6);
+    }
+    .media-item {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule, #d4cec6);
+      transition: background 0.15s;
+    }
+    .media-item:hover { background: rgba(0,0,0,0.02); }
+    .media-item .media-type {
+      font-family: var(--font-mono, 'DM Mono', monospace);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted, #888);
+      border: 1px solid var(--rule, #d4cec6);
+      padding: 0.2rem 0.45rem;
+      white-space: nowrap;
+      align-self: start;
+      margin-top: 2px;
+    }
+    .media-item-body { display: flex; flex-direction: column; gap: 0.2rem; }
+    .media-item .media-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text, #1a1c24);
+      margin: 0;
+    }
+    .media-item .media-source {
+      font-family: var(--font-mono, 'DM Mono', monospace);
+      font-size: 0.62rem;
+      color: var(--text-muted, #888);
+      letter-spacing: 0.04em;
+    }
+    .media-item .media-quote {
+      margin-top: 0.4rem;
+      font-style: italic;
+      font-size: 0.82rem;
+      color: var(--text-muted, #888);
+      border-left: 2px solid var(--accent, #b8914f);
+      padding-left: 0.75rem;
+    }
+    .media-item .media-link {
+      font-family: var(--font-mono, 'DM Mono', monospace);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--accent, #b8914f);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .media-item .media-link:hover { opacity: 0.7; }
+    @media (max-width: 640px) {
+      .media-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .media-item .media-link { justify-self: start; }
+    }
+  </style>
 </head>
 <body>
 
@@ -36,7 +101,7 @@
         <h1 class="hero-name">Tony<br>Peralta</h1>
         <p class="hero-tagline">Building AI Systems for the Federal Government</p>
         <p class="hero-desc">
-          19 years leading federal IT at Treasury, inspiring and working alongside a small team of highly skilled cloud engineers and developers, managing and supporting multi-million dollar federal programs. Program oversight, accountability, and hands-on technical contribution weren&rsquo;t separate tracks. They were all-encompassing parts of the same job.
+          19 years leading federal IT at Treasury, directly alongside a small team of highly skilled cloud engineers and developers, managing and delivering multi-million dollar federal programs. Program oversight, accountability, and hands-on technical contribution weren&rsquo;t separate tracks. They were all-encompassing parts of the same job.
         </p>
         <div class="hero-actions">
           <a href="mailto:tony@tonyperalta.io" class="action-link">Get in touch &rarr;</a>
@@ -248,7 +313,7 @@
     <header class="section-head">
       <span class="section-num">04</span>
       <div>
-        <h2 class="section-title">Work</h2>
+        <h2 class="section-title">Selected Work</h2>
         <p class="section-sub">Case studies and featured projects from government and enterprise AI engineering</p>
       </div>
     </header>
@@ -273,14 +338,14 @@
           </div>
           <div class="case-col">
             <span class="case-col-label">Solution</span>
-            <p>Led and directly supported multi-year program migrations of 6 flagship federal systems from on-prem to AWS, implementing microservices architecture, EC2 auto-scaling, RDS Multi-AZ, and S3 data lakes. Established CDK-based IaC pipelines for repeatable, auditable deployments. FInal system migration acomplished June 2025.</p>
+            <p>Led and directly supported multi-year program migrations of 6 flagship federal systems from on-prem to AWS, implementing microservices architecture, EC2 auto-scaling, RDS Multi-AZ, and S3 data lakes. Established CDK-based IaC pipelines for repeatable, auditable deployments. Final system migration accomplished June 2025.</p>
           </div>
           <div class="case-col case-col--results">
             <span class="case-col-label">Results</span>
             <div class="case-results">
               <div class="result"><span class="result-val">6</span><span class="result-label">Flagship System Cloud Migrations</span></div>
               <div class="result"><span class="result-val">100%</span><span class="result-label">On-Prem Decommissioned</span></div>
-              <div class="result"><span class="result-val">Constant</span><span class="result-label">Pursuit of Uptime SLA</span></div>
+              <div class="result"><span class="result-val">99.9%</span><span class="result-label">Uptime SLA Maintained</span></div>
               <div class="result"><span class="result-val">Zero</span><span class="result-label">Security Incidents</span></div>
             </div>
           </div>
@@ -303,15 +368,15 @@
           </div>
           <div class="case-col">
             <span class="case-col-label">Solution</span>
-            <p>Built GovDebtFree Manager&mdash;a POC reference implementation where recommendation agent inspired DebtWiseAI generates personalized debt resolution plans for citizen-facing, call center, and live chat consumption. Stack: Foundational Legislation provisions translated to functional components orchestrated with baked in AI capabilities + AWS Lex + DebtWiseAI + Bedrock organizational knowledge agent + Bedrock Lows + Transcribe voice pipeline + AWS Connect.</p>
+            <p>Built GovDebtFree Manager&mdash;a POC reference implementation where DebtWiseAI generates personalized debt resolution plans for citizen-facing, call center, and live chat consumption. Foundational legislation provisions were translated into functional components and orchestrated with native AI capabilities: AWS Lex, Bedrock knowledge agent, Bedrock Flows, Transcribe voice pipeline, and AWS Connect.</p>
           </div>
           <div class="case-col case-col--results">
             <span class="case-col-label">Results</span>
             <div class="case-results">
               <div class="result"><span class="result-val">Multi</span><span class="result-label">Channel Coverage</span></div>
-              <div class="result"><span class="result-val">Active</span><span class="result-label">A guide for Affiliate Implementation</span></div>
+              <div class="result"><span class="result-val">Active</span><span class="result-label">Affiliate Adoption as Reference Implementation</span></div>
               <div class="result"><span class="result-val">Prod</span><span class="result-label">Benchmark Standard</span></div>
-              <div class="result"><span class="result-val">Support</span><span class="result-label">+ AI-RAG Chat + CX</span></div>
+              <div class="result"><span class="result-val">Voice</span><span class="result-label">Chat &amp; CX Channels Covered</span></div>
             </div>
           </div>
         </div>
@@ -333,7 +398,7 @@
           </div>
           <div class="case-col">
             <span class="case-col-label">Solution</span>
-            <p>Architected TRORBOT&mdash;an agentic AI system enabling on-demand intelligent query across 25 years of historical financial data. The  agent reasons simultaneously across PDF reports, structured financial data, and a unique dynamic RAG incorporating institutional knowledge, contextualizing performance against national events playing out through the year. for example impacts of Conflicts, Natural Disasters, and evolving shifts in federal and state policies.</p>
+            <p>Architected TRORBOT&mdash;an agentic AI system enabling on-demand intelligent query across 25 years of historical financial data. The agent reasons simultaneously across PDF reports, structured financial data, and a dynamic RAG incorporating institutional knowledge, contextualizing performance against national events as they unfold&mdash;for example, the impacts of conflicts, natural disasters, and evolving shifts in federal and state policy.</p>
           </div>
           <div class="case-col case-col--results">
             <span class="case-col-label">Results</span>
@@ -368,7 +433,7 @@
             <h4 class="project-title">TRORBOT Agentic AI System</h4>
             <span class="project-cat">Agentic AI</span>
           </div>
-          <p class="project-desc">An agentic AI financial assistant that transforms how programs and business units in general can compile comprehensive annual reporting. Replaces weeks of multi-layered analyst coordination with on-demand intelligent query across multiple years of historical data. The AWS Bedrock agent reasons simultaneously across PDF reports, structured financial data, and institutional knowledge&mdash;contextualizing performance playing out through the year. for example, impacts of Conflicts, Natural Disasters, and evolving shifts in federal and state policies.</p>
+          <p class="project-desc">An agentic AI financial assistant that transforms how programs and business units compile comprehensive annual reporting. Replaces weeks of multi-layered analyst coordination with on-demand intelligent query across multiple years of historical data. The AWS Bedrock agent reasons simultaneously across PDF reports, structured financial data, and institutional knowledge&mdash;contextualizing performance against national events as they unfold, including the impacts of conflicts, natural disasters, and evolving shifts in federal and state policy.</p>
         </div>
       </li>
       <li class="project-item project-tile" data-category="government ai-ml">
@@ -453,62 +518,55 @@
       <button class="media-filter-btn" data-filter="articles">Articles</button>
     </div>
 
-    <div class="media-list">
+    <ol class="media-list">
 
-      <article class="media-item media-card" data-category="video">
-        <div class="media-item-meta">
-          <span class="media-type">Video</span>
+      <li class="media-item" data-category="video">
+        <span class="media-type">Video</span>
+        <div class="media-item-body">
+          <h4 class="media-title">Government Cloud Solutions</h4>
           <span class="media-source">AWS Official Channel</span>
         </div>
-        <h4 class="media-title">Government Cloud Solutions</h4>
-        <p class="media-desc">Featured on the official Amazon Web Services channel discussing cloud transformation strategies for government agencies.</p>
-        <a href="https://www.youtube.com/watch?v=Tk0fJeRqmfY" target="_blank" rel="noopener" class="media-link">Watch Video &rarr;</a>
-      </article>
+        <a href="https://www.youtube.com/watch?v=Tk0fJeRqmfY" target="_blank" rel="noopener" class="media-link">Watch &rarr;</a>
+      </li>
 
-      <article class="media-item media-card" data-category="speaking">
-        <div class="media-item-meta">
-          <span class="media-type">Speaking</span>
+      <li class="media-item" data-category="speaking">
+        <span class="media-type">Speaking</span>
+        <div class="media-item-body">
+          <h4 class="media-title">Cloud Catalysts: Making Data Management a Reality</h4>
           <span class="media-source">MeriTalk Veritas Vision 19</span>
         </div>
-        <h4 class="media-title">Cloud Catalysts: Making Data Management a Reality</h4>
-        <p class="media-desc">Panel discussion on government cloud adoption and data management strategies at premier federal technology conference.</p>
         <a href="https://meritalk.com/event/veritas-vision-19/agenda/" target="_blank" rel="noopener" class="media-link">View Event &rarr;</a>
-      </article>
+      </li>
 
-      <article class="media-item media-card" data-category="articles">
-        <div class="media-item-meta">
-          <span class="media-type">Article</span>
+      <li class="media-item" data-category="articles">
+        <span class="media-type">Article</span>
+        <div class="media-item-body">
+          <h4 class="media-title">Cloud Data Management Security Top of Mind for Government</h4>
           <span class="media-source">TechTarget</span>
         </div>
-        <h4 class="media-title">Cloud Data Management Security Top of Mind for Government</h4>
-        <p class="media-desc">Expert insights on cloud security challenges and best practices for government data management initiatives.</p>
-        <a href="https://www.techtarget.com/searchdatamanagement/news/252456934/Cloud-data-management-security-top-of-mind-for-government" target="_blank" rel="noopener" class="media-link">Read Article &rarr;</a>
-      </article>
+        <a href="https://www.techtarget.com/searchdatamanagement/news/252456934/Cloud-data-management-security-top-of-mind-for-government" target="_blank" rel="noopener" class="media-link">Read &rarr;</a>
+      </li>
 
-      <article class="media-item media-card" data-category="articles">
-        <div class="media-item-meta">
-          <span class="media-type">Article</span>
+      <li class="media-item" data-category="articles">
+        <span class="media-type">Article</span>
+        <div class="media-item-body">
+          <h4 class="media-title">Bureau of the Fiscal Service Moving Toward Open Data Lake Powered by Cloud</h4>
           <span class="media-source">Federal News Network &middot; 2019</span>
+          <blockquote class="media-quote">&ldquo;Unless you have the right governance&hellip; that data lake quickly becomes a data swamp.&rdquo;</blockquote>
         </div>
-        <h4 class="media-title">Bureau of the Fiscal Service Moving Toward Open Data Lake Powered by Cloud</h4>
-        <div class="media-quote">
-          <blockquote>&ldquo;Unless you have the right governance&hellip; that data lake quickly becomes a data swamp.&rdquo;</blockquote>
-        </div>
-        <p class="media-desc">Featured discussion on Treasury Department&rsquo;s data lake implementation and the importance of data governance.</p>
-        <a href="https://federalnewsnetwork.com/cloud-computing/2019/02/bureau-of-the-fiscal-service-moving-toward-open-data-lake-powered-by-cloud/" target="_blank" rel="noopener" class="media-link">Read Article &rarr;</a>
-      </article>
+        <a href="https://federalnewsnetwork.com/cloud-computing/2019/02/bureau-of-the-fiscal-service-moving-toward-open-data-lake-powered-by-cloud/" target="_blank" rel="noopener" class="media-link">Read &rarr;</a>
+      </li>
 
-      <article class="media-item media-card" data-category="articles">
-        <div class="media-item-meta">
-          <span class="media-type">Article</span>
+      <li class="media-item" data-category="articles">
+        <span class="media-type">Article</span>
+        <div class="media-item-body">
+          <h4 class="media-title">Treasury Dept&rsquo;s Fiscal Service Implementing Cloud-Based Data Lake for Call Center Operations</h4>
           <span class="media-source">ExecutiveGov</span>
         </div>
-        <h4 class="media-title">Treasury Dept&rsquo;s Fiscal Service Implementing Cloud-Based Data Lake for Call Center Operations</h4>
-        <p class="media-desc">Coverage of advanced cloud implementation for call center modernization and customer experience enhancement.</p>
-        <a href="https://executivegov.com/article/treasury-depts-fiscal-service-implementing-cloud-based-data-lake-for-call-center-operations" target="_blank" rel="noopener" class="media-link">Read Article &rarr;</a>
-      </article>
+        <a href="https://executivegov.com/article/treasury-depts-fiscal-service-implementing-cloud-based-data-lake-for-call-center-operations" target="_blank" rel="noopener" class="media-link">Read &rarr;</a>
+      </li>
 
-    </div>
+    </ol>
   </div>
 </section>
 
