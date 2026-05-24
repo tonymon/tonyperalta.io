@@ -2,44 +2,254 @@
 <title>Federal Agency Delinquent Debt Compliance · FY2020–FY2026</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,sans-serif;background:#f0f4f8;color:#1a2e44;font-size:14px}
-header{background:linear-gradient(135deg,#1a3a5c,#2563a8);color:#fff;padding:28px 36px}
-header h1{font-size:1.5rem;font-weight:700;letter-spacing:-.3px}
-header p{font-size:.83rem;opacity:.75;margin-top:6px}
-.wrap{max-width:1320px;margin:0 auto;padding:24px 28px}
-.sec{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#64748b;margin:24px 0 10px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:8px}
-.kpi{background:#fff;border-radius:12px;padding:16px 18px;box-shadow:0 1px 4px rgba(0,0,0,.06);border-top:3px solid #2563a8}
-.kpi.red{border-top-color:#dc2626}.kpi.green{border-top-color:#16a34a}.kpi.amber{border-top-color:#d97706}
-.kpi .v{font-size:1.75rem;font-weight:800;color:#1a3a5c;line-height:1}
-.kpi .l{font-size:.72rem;color:#64748b;margin-top:5px}
-.kpi .sub{font-size:.73rem;color:#94a3b8;margin-top:2px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.card{background:#fff;border-radius:12px;padding:20px 22px;box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:16px}
-.card h2{font-size:.9rem;font-weight:700;color:#1a3a5c;margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.bdg{font-size:.68rem;padding:2px 8px;border-radius:99px;font-weight:600}
-.bdg-warn{background:#fef3c7;color:#92400e}.bdg-good{background:#dcfce7;color:#166534}.bdg-info{background:#dbeafe;color:#1e40af}
-canvas{max-height:300px}
-table{width:100%;border-collapse:collapse;font-size:.79rem}
-th{background:#f8fafc;color:#475569;padding:8px 10px;text-align:left;border-bottom:2px solid #e2e8f0;font-weight:600;white-space:nowrap;position:sticky;top:0}
-td{padding:7px 10px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
-tr:hover td{background:#f8fafc}
-.up{color:#16a34a;font-weight:700}.dn{color:#dc2626;font-weight:700}.fl{color:#94a3b8}
-.bar-wrap{display:flex;align-items:center;gap:6px;min-width:100px}
-.bar-bg{flex:1;background:#e2e8f0;border-radius:4px;height:8px;overflow:hidden}
-.bar-fill{height:100%;border-radius:4px;transition:width .4s}
-.pct-lbl{font-size:.75rem;width:38px;text-align:right;color:#475569}
-input,select{padding:7px 11px;border-radius:8px;border:1px solid #e2e8f0;font-size:.83rem;background:#fff}
-input{width:240px}
-.ctrl{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;align-items:center}
-.tag{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.68rem;font-weight:600}
-.tag-cfo{background:#dbeafe;color:#1e40af}.tag-non{background:#f1f5f9;color:#475569}
-.finding{padding:12px 16px;border-radius:8px;border-left:4px solid #2563a8;background:#eff6ff;margin-bottom:10px;font-size:.83rem;line-height:1.6}
-.finding.warn{border-color:#dc2626;background:#fef2f2}
-.finding.good{border-color:#16a34a;background:#f0fdf4}
-footer{text-align:center;color:#aaa;font-size:.75rem;padding:18px}
-@media(max-width:800px){.grid2{grid-template-columns:1fr}}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg:       #F6F3EE;
+  --bg-alt:   #EDE9E0;
+  --navy:     #1A2E4A;
+  --ink:      #111111;
+  --ink-2:    #454545;
+  --ink-3:    #888888;
+  --rule:     #C9C4BB;
+  --red:      #B91C1C;
+  --green:    #15803D;
+  --amber:    #92400E;
+  --red-bg:   #FEF2F2;
+  --green-bg: #F0FDF4;
+  --amber-bg: #FFFBEB;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* ── Header ── */
+header {
+  background: var(--navy);
+  color: #F0ECE4;
+  padding: 2rem 2.5rem;
+}
+
+header h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.85rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+header p {
+  font-size: 0.78rem;
+  color: rgba(240,236,228,0.55);
+  margin-top: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* ── Layout ── */
+.wrap { max-width: 1320px; margin: 0 auto; padding: 2rem; }
+
+/* ── Section labels ── */
+.sec {
+  font-size: 0.67rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--ink-3);
+  margin: 2.25rem 0 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ── KPI strip ── */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0;
+  margin-bottom: 1rem;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.kpi {
+  background: #fff;
+  padding: 1.25rem;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  border-top: 2px solid var(--navy);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.kpi.red   { border-top-color: var(--red); }
+.kpi.green { border-top-color: var(--green); }
+.kpi.amber { border-top-color: #B45309; }
+
+.kpi .v {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.kpi .l {
+  font-size: 0.71rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.kpi .sub {
+  font-size: 0.69rem;
+  color: var(--ink-3);
+  margin-top: 0.2rem;
+}
+
+/* ── Two-column grid ── */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Cards ── */
+.card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: none;
+}
+
+.card h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ── Badges ── */
+.bdg {
+  font-size: 0.63rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 2px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.bdg-warn { background: var(--amber-bg); color: var(--amber); }
+.bdg-good { background: var(--green-bg); color: var(--green); }
+.bdg-info { background: var(--bg-alt);   color: var(--navy);  }
+
+/* ── Charts ── */
+canvas { max-height: 300px; }
+
+/* ── Tables ── */
+table { width: 100%; border-collapse: collapse; font-size: 0.79rem; }
+
+th {
+  background: var(--bg-alt);
+  color: var(--ink-3);
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+
+td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #EDE9E0;
+  vertical-align: middle;
+}
+
+tr:hover td { background: var(--bg); }
+
+.up { color: var(--green); font-weight: 600; }
+.dn { color: var(--red);   font-weight: 600; }
+.fl { color: var(--ink-3); }
+
+/* ── Progress bars ── */
+.bar-wrap { display: flex; align-items: center; gap: 6px; min-width: 100px; }
+.bar-bg   { flex: 1; background: var(--rule); border-radius: 1px; height: 6px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 1px; transition: width 0.4s; }
+.pct-lbl  { font-size: 0.72rem; width: 38px; text-align: right; color: var(--ink-3); }
+
+/* ── Controls ── */
+input, select {
+  padding: 0.42rem 0.7rem;
+  border-radius: 2px;
+  border: 1px solid var(--rule);
+  font-size: 0.82rem;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+}
+input { width: 240px; }
+.ctrl { display: flex; gap: 0.5rem; margin-bottom: 0.85rem; flex-wrap: wrap; align-items: center; }
+
+/* ── Tags ── */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 2px;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.tag-cfo { background: var(--navy); color: #F0ECE4; }
+.tag-non { background: var(--bg-alt); color: var(--ink-3); }
+
+/* ── Findings ── */
+.finding {
+  padding: 0.85rem 1.1rem;
+  border-radius: 0;
+  border-left: 3px solid var(--navy);
+  background: rgba(26,46,74,0.04);
+  margin-bottom: 0.6rem;
+  font-size: 0.83rem;
+  line-height: 1.65;
+}
+.finding.warn { border-left-color: var(--red);   background: var(--red-bg);   }
+.finding.good { border-left-color: var(--green);  background: var(--green-bg); }
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 0.73rem;
+  padding: 2rem 1rem;
+  border-top: 1px solid var(--rule);
+  margin-top: 2rem;
+}
+
+@media (max-width: 800px) {
+  .grid2 { grid-template-columns: 1fr; }
+  .kpis  { grid-template-columns: repeat(2, 1fr); }
+  header { padding: 1.5rem; }
+  .wrap  { padding: 1.25rem; }
+}
 </style></head><body>
 <header><h1>Federal Agency Delinquent Debt Referral Compliance</h1>
 <p>120-Day Compliance Analysis &nbsp;·&nbsp; FY2020–FY2026 &nbsp;·&nbsp; Source: Treasury Fiscal Data API (debt/tror/data_act_compliance + debt/tror) &nbsp;·&nbsp; Generated 2026-05-24 01:08</p></header>
