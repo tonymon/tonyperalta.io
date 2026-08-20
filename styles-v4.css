@@ -313,6 +313,18 @@ em { font-style: italic; }
   border-bottom: 1px solid var(--rule);
 }
 
+/* ── Agent Orchestration ─────────────────────────────────── */
+.harness-fig {
+  max-width: 760px;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+}
+.harness-fig img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+}
+
 /* ── Expertise ───────────────────────────────────────────── */
 .expertise-table {
   display: flex;
